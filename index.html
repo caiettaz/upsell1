@@ -17,11 +17,7 @@
     />
     <link rel="stylesheet" href="css/nAtMlCw82x4Y.css" />
     <link rel="stylesheet" href="css/WJm7wgIwgKRr.css" />
-    <script
-      disable-devtool-auto=""
-      src="https://cdn.jsdelivr.net/npm/disable-devtool"
-      url="https://youtu.be/3W4aWnPoRy8?si=jUzCI55TpmEXM3Yw"
-    ></script>
+    
     <script>
       eval(
         atob(
@@ -29,7 +25,18 @@
         )
       );
     </script>
-    <script src="https://multi.paradisepags.com/assets/js/one-click.js?v=1762263779" defer></script>
+    <script src="https://multi.paradisepags.com/assets/js/one-click.js?v=1762266117" defer></script>
+    <script>
+      // Redireciona automaticamente com fpay se não existir
+      (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (!urlParams.has('fpay')) {
+          const defaultFpay = 'CKO-690a1edbd3879'; // Seu valor padrão
+          urlParams.set('fpay', defaultFpay);
+          window.location.href = window.location.pathname + '?' + urlParams.toString();
+        }
+      })();
+    </script>
   </head>
   <body>
     <div class="header">ATENÇÃO A SUA COMPRA NÃO ESTÁ COMPLETA!</div>
@@ -69,7 +76,7 @@
 
       <p>📌 Atenção: Essa etapa é obrigatória para concluir o processo.</p>
     <div class="section CTA">
-      <button class="paradise-upsell-btn" style="background-color: #ffa200; color: #ffffff; padding: 12px 20px; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer;" data-offer-hash="upsell_140cd12ce304ac36" data-modal-title="Finalize com PIX para garantir sua oferta!" data-copy-button-text="Copiar Código PIX" data-modal-bg="#ffffff" data-modal-title-color="#1f2937" data-modal-btn-color="#28a745" data-modal-btn-text-color="#ffffff">🔓 LIBERAR AGORA 🔓</button>
+      <button class="paradise-upsell-btn" style="background-color: #28a745; color: #ffffff; padding: 12px 20px; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer;" data-offer-hash="upsell_140cd12ce304ac36" data-modal-title="Finalize com PIX para garantir sua oferta!" data-copy-button-text="Copiar Código PIX" data-modal-bg="#ffffff" data-modal-title-color="#1f2937" data-modal-btn-color="#28a745" data-modal-btn-text-color="#ffffff">Sim, eu quero esta oferta!</button>
     </div>
     <div class="section faq">
       <div class="faq-title">DÚVIDAS FREQUENTES</div>
@@ -486,62 +493,6 @@
 })();
 </script>
 -->
-    <!-- FIM CÓDIGO MULTI PARADISE -->
 
-    <!-- GHOSTSPAYS REDIRECT -->
-    <script>
-      (function () {
-        // Redirecionamento direto para GhostsPays
-        const GHOSTSPAYS_URL =
-          "https://app.ghostspaysv2.com/payment/checkout/d622ee07-8d80-4078-84f9-d6906144eb9f";
-
-        // Pega UTMs da URL atual
-        const urlParams = new URLSearchParams(window.location.search);
-        const utms = {};
-        for (const [key, value] of urlParams.entries()) {
-          if (key.startsWith("utm_") || key === "src" || key === "sck") {
-            utms[key] = value;
-          }
-        }
-
-        // Monta URL final com UTMs
-        const utmString = new URLSearchParams(utms).toString();
-        const finalUrl = GHOSTSPAYS_URL + (utmString ? "?" + utmString : "");
-
-        console.log("🚀 Redirecionando para GhostsPays:", finalUrl);
-
-        // Adiciona evento de click em todos os botões
-        document.addEventListener("DOMContentLoaded", function () {
-          const buttons = document.querySelectorAll(
-            ".btn-comprar, .pay-button"
-          );
-
-          buttons.forEach((button) => {
-            button.addEventListener("click", function (e) {
-              e.preventDefault();
-
-              // Dispara evento do Facebook Pixel (se disponível)
-              if (typeof fbq === "function") {
-                fbq("track", "InitiateCheckout", {
-                  content_name: "Upsell",
-                  currency: "BRL",
-                });
-              }
-
-              // Redireciona para GhostsPays
-              console.log("✅ Redirecionando...");
-              window.location.href = finalUrl;
-            });
-          });
-
-          console.log(
-            "✅ GhostsPays configurado - " +
-              buttons.length +
-              " botões encontrados"
-          );
-        });
-      })();
-    </script>
   </body>
-  <!-- Mirrored from inovacaodigital.pro/NOVA/up1/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 04 Nov 2025 13:45:50 GMT -->
 </html>
