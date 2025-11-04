@@ -26,20 +26,27 @@
       );
     </script>
     <script src="https://multi.paradisepags.com/assets/js/one-click.js?v=1762266117" defer></script>
+  </head>
+  <body>
     <script>
-      // Redireciona automaticamente com fpay se não existir
+      // Adiciona fpay automaticamente se não existir
       (function() {
         const urlParams = new URLSearchParams(window.location.search);
+        console.log('URL atual:', window.location.href);
+        console.log('Parâmetros:', urlParams.toString());
+        
         if (!urlParams.has('fpay')) {
-          const defaultFpay = 'CKO-690a1edbd3879'; // Seu valor padrão
+          const defaultFpay = 'CKO-690a1edbd3879';
           urlParams.set('fpay', defaultFpay);
           const newUrl = window.location.pathname + '?' + urlParams.toString();
+          console.log('Nova URL:', newUrl);
           window.history.replaceState({}, '', newUrl);
+          console.log('URL atualizada para:', window.location.href);
+        } else {
+          console.log('fpay já existe:', urlParams.get('fpay'));
         }
       })();
     </script>
-  </head>
-  <body>
     <div class="header">ATENÇÃO A SUA COMPRA NÃO ESTÁ COMPLETA!</div>
     <div class="section">
       <div class="image">
